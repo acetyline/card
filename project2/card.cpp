@@ -1,18 +1,18 @@
-#include<vector>
-#include<algorithm>
-#include<iostream>
+#include <algorithm>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 
 class card
 {
-    public:
+public:
     vector<int> cards;
     int cardsptr = 0;
     //1:<<,2:>>,3:~,4:l,5:C
     void init(int n)
     {
-        for (int i = 1; i <= n;i++)
+        for (int i = 1; i <= n; i++)
         {
             cards.push_back(1);
             cards.push_back(2);
@@ -24,5 +24,4 @@ class card
         }
         random_shuffle(cards.begin(), cards.end());
     }
-
 };
