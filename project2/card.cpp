@@ -1,27 +1,50 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
+#include <random>
 
 using namespace std;
 
 class card
 {
 public:
-    vector<int> cards;
-    int cardsptr = 0;
+    vector<int> skillcards;
+    vector<int> firstcards;
+    vector<int> basiccards;
+    int skillptr = 0;
+    int basicptr = 0;
     //1:<<,2:>>,3:~,4:l,5:C
     void init(int n)
     {
         for (int i = 1; i <= n; i++)
         {
-            cards.push_back(1);
-            cards.push_back(2);
-            cards.push_back(2);
-            cards.push_back(3);
-            cards.push_back(4);
-            cards.push_back(5);
-            cards.push_back(5);
+            skillcards.push_back(1);
+            skillcards.push_back(2);
+            skillcards.push_back(2);
+            skillcards.push_back(3);
+            skillcards.push_back(4);
+            skillcards.push_back(5);
+            skillcards.push_back(5);
         }
-        random_shuffle(cards.begin(), cards.end());
+        random_shuffle(skillcards.begin(), skillcards.end());
+
+    }
+    void getfirst(int n)
+    {   
+        for (int i = 1; i <= 511;i++)
+        {
+            basiccards.push_back(i);
+        }
+        vector<int> a;
+        for (int i = 1; i <= 31;i++)
+        {
+            a.push_back(i);
+        }
+        random_shuffle(a.begin(), a.end());
+        for (int i = 0; i < n;i++)
+        {
+            firstcards.push_back(a[i]);
+            basiccards.erase(basiccards.begin()+a[i]-1);
+        }
     }
 };

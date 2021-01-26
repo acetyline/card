@@ -20,15 +20,39 @@ class player
         int score = 100;
         int judge = 0;
         Sign sign;
-        vector<int> owncard;
-
+        vector<int> skillcard;
+        vector<int> basiccard;
+        string printscore()
+        {
+            string ans;
+            char q = '0';
+            while(score)
+            {
+            q += (score %= 2);
+            score /= 2;
+            ans += q;
+            }
+            reverse(ans.begin(), ans.end());
+            return ans;
+        }
 };
 
-void getcard(player P,card C)
+void getcard(player P,card C,int kind)
 {
-    if(C.cardsptr<=C.cards.size()-1)
+    if(kind==1)
     {
-        P.owncard.push_back(C.cards[C.cardsptr]);
-        C.cardsptr++;
+        if(C.skillptr<=C.skillcards.size()-1)
+        {
+            P.skillcard.push_back(C.skillcards[C.skillptr]);
+            C.skillptr++;
+        }
+    }
+    else
+    {
+        if(C.basicptr<=C.basiccards.size()-1)
+        {
+        P.basiccard.push_back(C.basiccards[C.basicptr]);
+        C.basicptr++;
+        }
     }
 }
