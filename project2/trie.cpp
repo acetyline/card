@@ -5,9 +5,9 @@ using namespace std;
 class trie
 {
 public:
-	//tree：Trie 树 
+	//tree：Trie 树。
     map<int,map<int,int> > tree;
-    //num：某个玩家所在的位置，arcnum：某个位置的玩家 
+    //num：某个玩家所在的位置，arcnum：某个位置的玩家。
     map<int,int> num,arcnum;
     int cnt=0;
     void clear()
@@ -17,7 +17,7 @@ public:
     	arcnum.clear();
     	cnt=0; 
 	}
-    //player:某个玩家的操作 card:加入的基本牌
+    //player:某个玩家的操作，card:加入的基本牌。
     void add(int player,int card)
 	{
 		int k=0;
