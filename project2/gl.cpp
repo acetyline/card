@@ -2,7 +2,7 @@
 #include<cmath>
 #include<vector>
 #include<GL/glut.h>
-#include "trie.cpp"
+#include "trie.h"
 
 using namespace std;
 
