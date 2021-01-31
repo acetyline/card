@@ -13,13 +13,24 @@ struct point
     double x;
     double y;
 };
-
-vector<vector<pair<pair<int, int>, int>>> t;
+typedef vector<vector<pair<pair<int, int>, int>>> trie01;
+trie01 t;
 vector<vector<pair<point, int>>> pts;
+
+int layer;
+float r;
+void update(trie a)
+{
+    t = a.putout();
+    layer = t.size();
+}
+
+float r = 0.04;
+//上下行间距为一个半径，最上面最下面留两个半径
 
 point center;
 int a;
-float r = 0.01;
+
 
 void drawcircle()
 {
@@ -44,9 +55,12 @@ int main(int argc,char ** argv)
     glutCreateWindow("test");
     for(auto i:pts)
     {
-        center = i.first;
-        a = i.second;
+        for(auto j:i)
+        {
+        center = j.first;
+        a = j.second;
         glutDisplayFunc(drawcircle);
+        }
     }
     glutMainLoop();
     return 0;
