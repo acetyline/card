@@ -47,4 +47,47 @@ public:
             basiccards.erase(basiccards.begin()+a[i]-1);
         }
     }
+    //<< 
+    void left(int &value)
+    //value：玩家数值
+	{
+		value<<=1;
+	}
+	//>> 
+    void right(int &value)
+    //value：玩家数值
+	{
+		value>>=1;
+	}
+	//>>
+    void left(int &value)
+    //value：玩家数值
+    {
+	value<<=1;
+    }
+    //~
+    void opposite(int &value)
+    //value：玩家数值
+    {
+        for(int i=10;~i;i--)
+        {
+	    if(value&(1<<i))
+	    {
+	        value^=(1<<(i+1)-1);
+	        break;
+	    }
+	}
+    }
+    //I
+    void insert(int &value,int k)
+    //value：玩家数值，k:更改数位 
+    {
+        value^=(1<<k);
+    }
+    //C
+    void clear(int &value,int k)
+    //value：玩家数值，k:更改数位
+    {
+	value^=(1<<k);
+    }
 };
