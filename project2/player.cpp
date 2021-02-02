@@ -35,47 +35,6 @@ class player
             reverse(ans.begin(), ans.end());
             return ans;
         }
-    //返回false表明出牌不符合条件
-    bool usecard(int pos,bool kind)//kind=true表示基本牌,kind=false表示特殊牌
-    {
-        if(kind==true)
-        {
-            if(pos<=0||pos>basiccard.size())
-                return false;
-                else
-                {
-                    //TODO
-                    basiccard.erase(basiccard.begin() - 1 + pos);
-                }
-        }
-        else
-        {
-            if(pos<=0||pos>skillcard.size())
-                return false;
-            else if(skillcard[pos-1]==5)
-                return false;
-            else
-            {
-                //TODO
-                skillcard.erase(skillcard.begin() - 1 + pos);
-            }
-        }
-    }
-
-    bool useclear()//返回true表示能出，返回false表示出不了
-    {
-        for (int i = 0; i < skillcard.size();i++)
-        {
-            if(skillcard[i]==5)
-            {
-                skillcard.erase(skillcard.begin() + i);
-                return true;
-            }
-        }
-        return false;
-    }
-
-
 };
 
 void getcard(player P,card C,int kind)
