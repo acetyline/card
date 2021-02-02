@@ -18,7 +18,6 @@ trie01 t;
 vector<vector<pair<point, int>>> pts;
 
 int layer;
-float r;
 void update(trie a)
 {
     t = a.putout();

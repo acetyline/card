@@ -9,13 +9,13 @@
 class tcp
 {
     int create();
-    bool Bind(unsigned short port);
+    bool Bind(unsigned short);
     tcp acce();
     void close();
-    int Recv(std::string buf);
-    int Send(std::string buf);
-    bool Connect(std::string ip, unsigned short port, unsigned int timeoutms = 1000);
-    bool block(bool a);//设置阻塞
+    int Recv(std::string);
+    int Send(std::string);
+    bool Connect(std::string, unsigned short, unsigned int);
+    bool block(bool);//设置阻塞
     void init()
     {
         WSADATA ws;
